@@ -27,16 +27,16 @@ public class StudentService {
 
     @Transactional
     public Student createStudent(CreateStudentRequest req) {
-        Student s = new Student();
-        s.setFirstName(req.firstName());
-        s.setLastName(req.lastName());
+        Student student = new Student();
+        student.setFirstName(req.firstName());
+        student.setLastName(req.lastName());
         req.scores().forEach((subject, score) -> {
             Score sc = new Score();
             sc.setSubject(subject);
             sc.setScore(score);
-            s.addScore(sc);
+            student.addScore(sc);
         });
-        return studentRepo.save(s);
+        return studentRepo.save(student);
     }
 
     public Page<StudentReportDTO> report(int page, int size, String nameFilter) {

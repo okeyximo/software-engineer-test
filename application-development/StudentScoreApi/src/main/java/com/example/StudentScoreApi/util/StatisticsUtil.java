@@ -11,7 +11,7 @@ public final class StatisticsUtil {
     }
 
     public static double median(Collection<Integer> values) {
-        List<Integer> sorted = values.stream().sorted().collect(Collectors.toList());
+        List<Integer> sorted = values.stream().sorted().toList();
         int n = sorted.size();
         if (n == 0) return 0;
         if (n % 2 == 1) return sorted.get(n/2);
