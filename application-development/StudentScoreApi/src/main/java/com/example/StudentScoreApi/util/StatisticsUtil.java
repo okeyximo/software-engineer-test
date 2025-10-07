@@ -1,7 +1,6 @@
 package com.example.StudentScoreApi.util;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public final class StatisticsUtil {
     private StatisticsUtil() {}
