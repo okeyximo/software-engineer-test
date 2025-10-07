@@ -1,4 +1,4 @@
-# Software Engineer Test (Remote)
+# Software Engineer Test
 
 This repo contains:
 - Programming & Algorithm (Java + JUnit)
