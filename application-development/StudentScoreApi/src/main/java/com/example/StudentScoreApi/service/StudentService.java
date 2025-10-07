@@ -40,13 +40,13 @@ public class StudentService {
     }
 
     public Page<StudentReportDTO> report(int page, int size, String nameFilter) {
-        Pageable p = PageRequest.of(page, size);
+        Pageable pageable = PageRequest.of(page, size);
         Page<Student> students;
         if (nameFilter == null || nameFilter.isBlank()) {
-            students = studentRepo.findAll(p);
+            students = studentRepo.findAll(pageable);
         } else {
-            // simple filter: lastName or firstName contains (for brevity use findAll and filter)
-            students = studentRepo.findAll(p); // for large data, implement repository query
+            students = studentRepo.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
+                nameFilter, nameFilter, pageable);
         }
 
         return students.map(this::toReport);
