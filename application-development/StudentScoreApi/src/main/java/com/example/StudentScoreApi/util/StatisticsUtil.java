@@ -23,6 +23,7 @@ public final class StatisticsUtil {
         Map<Integer, Integer> freq = new HashMap<>();
         for (Integer v : values) freq.put(v, freq.getOrDefault(v, 0) + 1);
         int max = Collections.max(freq.values());
+        if (max == 1) return null;
         // return one mode (smallest value among ties)
         return freq.entrySet().stream()
                 .filter(e -> e.getValue() == max)

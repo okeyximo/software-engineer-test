@@ -2,7 +2,9 @@
 package com.example.StudentScoreApi.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -10,6 +12,8 @@ import lombok.Setter;
        uniqueConstraints = @UniqueConstraint(columnNames = {"student_id","subject"}))
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Score {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
